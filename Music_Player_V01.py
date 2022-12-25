@@ -15,26 +15,29 @@ Created on 12/25, 2022 (Merry Christmas!!!)
 # https://towardsdatascience.com/how-to-build-an-mp3-music-player-with-python-619e0c0dcee2
 # https://data-flair.training/blogs/python-mp3-player/
 # https://techvidvan.com/tutorials/python-create-mp3-music-player/
+# https://www.geeksforgeeks.org/pyqt5-how-to-add-image-in-window/
+# https://www.geeksforgeeks.org/how-to-set-icon-to-a-window-in-pyqt5/
 
 
 from UI_V01 import *
 from pygame import mixer
 from glob import glob
-from PySide2 import QtGui, QtWidgets
 
 mixer.init()
 volume = 1
+
 
 class AppWindow(QWidget):
     def __init__(self):
         super().__init__()
         self.ui = Ui_Music_Player()
         self.ui.setupUi(self)
+        self.setWindowIcon(QIcon("christmas-carols.png"))
         self.setup_control()
         self.show()
 
     def setup_control(self):
-        Xmas_img = QtGui.QPixmap('christmas-carols.png').scaled(75, 75)
+        Xmas_img = QPixmap('christmas-carols.png').scaled(75, 75)
         self.ui.Xmas_Label.setPixmap(Xmas_img)
         self.ui.Xmas_Label.setAlignment(Qt.AlignCenter)
         self.ui.Songs_ListWidget.clear()
@@ -74,8 +77,6 @@ class AppWindow(QWidget):
         self.ui.Pause_Button.setEnabled(True)
         self.ui.Resume_Button.setEnabled(False)
         self.ui.Current_Label.setText("Now Playing: ")
-
-
 
     def Play_Button_Clicked(self):
         print("Music_Folder\\"+self.ui.Songs_ListWidget.currentItem().text())
@@ -141,3 +142,5 @@ if __name__ == "__main__":
     IG_Photo_Downloader = AppWindow()
     IG_Photo_Downloader.show()
     sys.exit(app.exec_())
+
+

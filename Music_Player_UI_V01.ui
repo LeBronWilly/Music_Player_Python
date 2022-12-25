@@ -20,7 +20,7 @@
    <property name="geometry">
     <rect>
      <x>250</x>
-     <y>40</y>
+     <y>30</y>
      <width>161</width>
      <height>41</height>
     </rect>
@@ -41,7 +41,7 @@
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>40</y>
+     <y>30</y>
      <width>301</width>
      <height>41</height>
     </rect>
@@ -90,7 +90,7 @@
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>90</y>
+     <y>80</y>
      <width>381</width>
      <height>291</height>
     </rect>
@@ -101,7 +101,7 @@
     </font>
    </property>
    <property name="verticalScrollBarPolicy">
-    <enum>Qt::ScrollBarAlwaysOn</enum>
+    <enum>Qt::ScrollBarAsNeeded</enum>
    </property>
    <item>
     <property name="text">
@@ -126,7 +126,7 @@
    <property name="geometry">
     <rect>
      <x>470</x>
-     <y>90</y>
+     <y>80</y>
      <width>161</width>
      <height>41</height>
     </rect>
@@ -150,7 +150,7 @@
    <property name="geometry">
     <rect>
      <x>470</x>
-     <y>140</y>
+     <y>130</y>
      <width>161</width>
      <height>41</height>
     </rect>
@@ -174,7 +174,7 @@
    <property name="geometry">
     <rect>
      <x>470</x>
-     <y>190</y>
+     <y>180</y>
      <width>161</width>
      <height>41</height>
     </rect>
@@ -198,7 +198,7 @@
    <property name="geometry">
     <rect>
      <x>470</x>
-     <y>240</y>
+     <y>230</y>
      <width>161</width>
      <height>41</height>
     </rect>
@@ -222,7 +222,7 @@
    <property name="geometry">
     <rect>
      <x>470</x>
-     <y>290</y>
+     <y>280</y>
      <width>161</width>
      <height>41</height>
     </rect>
@@ -246,7 +246,7 @@
    <property name="geometry">
     <rect>
      <x>470</x>
-     <y>340</y>
+     <y>330</y>
      <width>161</width>
      <height>41</height>
     </rect>
@@ -267,7 +267,7 @@
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>390</y>
+     <y>380</y>
      <width>631</width>
      <height>31</height>
     </rect>
@@ -295,7 +295,7 @@
    <property name="geometry">
     <rect>
      <x>490</x>
-     <y>40</y>
+     <y>30</y>
      <width>40</width>
      <height>40</height>
     </rect>
@@ -319,7 +319,7 @@
    <property name="geometry">
     <rect>
      <x>570</x>
-     <y>40</y>
+     <y>30</y>
      <width>41</width>
      <height>41</height>
     </rect>
@@ -360,6 +360,7 @@
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
+  <zorder>Xmas_Label</zorder>
   <zorder>List_Label</zorder>
   <zorder>WillyF_Label</zorder>
   <zorder>Songs_ListWidget</zorder>
@@ -369,11 +370,10 @@
   <zorder>Previous_Button</zorder>
   <zorder>Next_Button</zorder>
   <zorder>Stop_Button</zorder>
-  <zorder>Current_Label</zorder>
   <zorder>Turn_Up_Button</zorder>
   <zorder>Turn_Down_Button</zorder>
-  <zorder>Xmas_Label</zorder>
   <zorder>Refresh_Button</zorder>
+  <zorder>Current_Label</zorder>
  </widget>
  <resources/>
  <connections/>
