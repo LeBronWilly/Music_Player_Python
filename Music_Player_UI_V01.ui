@@ -34,10 +34,10 @@
     </font>
    </property>
    <property name="text">
-    <string>Refresh</string>
+    <string>Refresh All</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_2">
+  <widget class="QLabel" name="List_Label">
    <property name="geometry">
     <rect>
      <x>30</x>
@@ -61,7 +61,7 @@
     <set>Qt::AlignJustify|Qt::AlignVCenter</set>
    </property>
   </widget>
-  <widget class="QLabel" name="Label_WillyF">
+  <widget class="QLabel" name="WillyF_Label">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -80,7 +80,7 @@
     </font>
    </property>
    <property name="text">
-    <string>Developed by Willy Fang</string>
+    <string>Developed by WillyF</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignJustify|Qt::AlignVCenter</set>
@@ -169,7 +169,7 @@
   </widget>
   <widget class="QPushButton" name="Resume_Button">
    <property name="enabled">
-    <bool>true</bool>
+    <bool>false</bool>
    </property>
    <property name="geometry">
     <rect>
@@ -261,6 +261,31 @@
    </property>
    <property name="text">
     <string>Stop</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="Current_Label">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>380</y>
+     <width>601</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Arial</family>
+     <pointsize>11</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Now Playing: </string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignJustify|Qt::AlignVCenter</set>
    </property>
   </widget>
  </widget>
