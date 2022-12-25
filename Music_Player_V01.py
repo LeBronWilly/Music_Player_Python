@@ -19,12 +19,11 @@ Created on 12/25, 2022 (Merry Christmas!!!)
 
 from UI_V01 import *
 from pygame import mixer
-import os
 from glob import glob
-from PySide2.QtWidgets import QMessageBox
-import shutil
+from PySide2 import QtGui, QtWidgets
 
 mixer.init()
+volume = 1
 
 class AppWindow(QWidget):
     def __init__(self):
@@ -35,6 +34,9 @@ class AppWindow(QWidget):
         self.show()
 
     def setup_control(self):
+        Xmas_img = QtGui.QPixmap('christmas-carols.png').scaled(75, 75)
+        self.ui.Xmas_Label.setPixmap(Xmas_img)
+        self.ui.Xmas_Label.setAlignment(Qt.AlignCenter)
         self.ui.Songs_ListWidget.clear()
         self.ui.Songs_ListWidget.addItems([i.replace("Music_Folder\\", "") for i in glob("Music_Folder/*.mp3")])
         if len(glob("Music_Folder/*.mp3")) > 0:
@@ -46,7 +48,22 @@ class AppWindow(QWidget):
         self.ui.Previous_Button.clicked.connect(self.Previous_Button_Clicked)
         self.ui.Next_Button.clicked.connect(self.Next_Button_Clicked)
         self.ui.Stop_Button.clicked.connect(self.Stop_Button_Clicked)
+        self.ui.Turn_Up_Button.clicked.connect(self.Turn_Up_Button_Clicked)
+        self.ui.Turn_Down_Button.clicked.connect(self.Turn_Down_Button_Clicked)
 
+    def Turn_Up_Button_Clicked(self):
+        global volume
+        volume += 0.1
+        if volume >= 1:
+            volume = 1
+        mixer.music.set_volume(volume)
+
+    def Turn_Down_Button_Clicked(self):
+        global volume
+        volume -= 0.1
+        if volume <= 0.0:
+            volume = 0.0
+        mixer.music.set_volume(volume)
 
     def Refresh_Button_Clicked(self):
         self.ui.Songs_ListWidget.clear()
@@ -57,6 +74,8 @@ class AppWindow(QWidget):
         self.ui.Pause_Button.setEnabled(True)
         self.ui.Resume_Button.setEnabled(False)
         self.ui.Current_Label.setText("Now Playing: ")
+
+
 
     def Play_Button_Clicked(self):
         print("Music_Folder\\"+self.ui.Songs_ListWidget.currentItem().text())
