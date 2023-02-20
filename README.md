@@ -7,3 +7,5 @@
 4. <a href="https://youtu.be/QUwxKWT6m7U" title="Music Used 3">Taylor Swift - Back To December created by Taylor Swift - YouTube</a>
 5. <a href="https://youtu.be/5KZFGAwJ-Ew" title="Music Used 4">Fairy Tail Final Season Ending Full「Endless Harmony」by Beverly feat LOREN (Lyrics Romaji & Kanji) created by Hifumi Music 2.0 - YouTube</a>
 6. <a href="https://youtu.be/T4pTMZuAux4" title="Music Used 5">Taylor Swift- Last Christmas (Lyrics) created by BbbradiCP - YouTube</a>
+
+Download Application (.exe): [here](https://github.com/LeBronWilly/Music_Player_Python/releases)
