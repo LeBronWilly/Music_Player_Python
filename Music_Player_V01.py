@@ -21,7 +21,7 @@ Created on 12/25, 2022 (Merry Christmas!!!)
 # https://stackoverflow.com/questions/17504653/why-qpixmapscaled-does-not-work
 # https://www.pygame.org/docs/ref/music.html
 # https://www.adamsmith.haus/python/answers/how-to-format-a-number-as-a-percentage-in-python
-
+# https://stackoverflow.com/questions/12876935/python-qt-qlistwidget-double-clicked
 
 from UI_V01 import *
 from pygame import mixer
@@ -55,6 +55,7 @@ class AppWindow(QWidget):
         if len(glob("Music_Folder/*.mp3")) > 0:
             self.ui.Songs_ListWidget.setCurrentRow(0)
         self.ui.Refresh_Button.clicked.connect(self.Refresh_Button_Clicked)
+        self.ui.Songs_ListWidget.itemDoubleClicked.connect(self.Play_Button_Clicked)
         self.ui.Play_Button.clicked.connect(self.Play_Button_Clicked)
         self.ui.Pause_Button.clicked.connect(self.Pause_Button_Clicked)
         self.ui.Resume_Button.clicked.connect(self.Resume_Button_Clicked)
