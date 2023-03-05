@@ -17,11 +17,16 @@ Created on 12/25, 2022 (Merry Christmas!!!)
 # https://techvidvan.com/tutorials/python-create-mp3-music-player/
 # https://www.geeksforgeeks.org/pyqt5-how-to-add-image-in-window/
 # https://www.geeksforgeeks.org/how-to-set-icon-to-a-window-in-pyqt5/
+# https://stackoverflow.com/questions/11073972/pyqt-set-qlabel-image-from-url
+# https://stackoverflow.com/questions/17504653/why-qpixmapscaled-does-not-work
+# https://www.pygame.org/docs/ref/music.html
+# https://www.adamsmith.haus/python/answers/how-to-format-a-number-as-a-percentage-in-python
 
 
 from UI_V01 import *
 from pygame import mixer
 from glob import glob
+import urllib.request
 
 mixer.init()
 volume = 1
@@ -32,13 +37,18 @@ class AppWindow(QWidget):
         super().__init__()
         self.ui = Ui_Music_Player()
         self.ui.setupUi(self)
-        self.setWindowIcon(QIcon("christmas-carols.png"))
+        # self.setWindowIcon(QIcon("christmas-carols.png"))
         self.setup_control()
         self.show()
 
     def setup_control(self):
-        Xmas_img = QPixmap('christmas-carols.png').scaled(75, 75)
-        self.ui.Xmas_Label.setPixmap(Xmas_img)
+        self.ui.Xmas_img = QPixmap()
+        url = 'https://raw.githubusercontent.com/LeBronWilly/Music_Player_Python/main/christmas-carols.png'
+        img_data = urllib.request.urlopen(url).read()
+        self.ui.Xmas_img.loadFromData(img_data)
+        self.ui.Xmas_img = self.ui.Xmas_img.scaled(75, 75)
+        self.setWindowIcon(QIcon(self.ui.Xmas_img))
+        self.ui.Xmas_Label.setPixmap(self.ui.Xmas_img)
         self.ui.Xmas_Label.setAlignment(Qt.AlignCenter)
         self.ui.Songs_ListWidget.clear()
         self.ui.Songs_ListWidget.addItems([i.replace("Music_Folder\\", "") for i in glob("Music_Folder/*.mp3")])
@@ -60,6 +70,7 @@ class AppWindow(QWidget):
         if volume >= 1:
             volume = 1
         mixer.music.set_volume(volume)
+        print("Current Volume:", "{:.0%}".format(round(mixer.music.get_volume(), 1)))
 
     def Turn_Down_Button_Clicked(self):
         global volume
@@ -67,6 +78,7 @@ class AppWindow(QWidget):
         if volume <= 0.0:
             volume = 0.0
         mixer.music.set_volume(volume)
+        print("Current Volume:", "{:.0%}".format(round(mixer.music.get_volume(), 1)))
 
     def Refresh_Button_Clicked(self):
         self.ui.Songs_ListWidget.clear()
