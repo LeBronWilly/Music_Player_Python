@@ -9,3 +9,7 @@
 6. <a href="https://youtu.be/T4pTMZuAux4" title="Music Used 5">Taylor Swift- Last Christmas (Lyrics) created by BbbradiCP - YouTube</a>
 
 Download Application (.exe): [here](https://github.com/LeBronWilly/Music_Player_Python/releases)
+
+User Interface: <br>
+<img src="https://user-images.githubusercontent.com/38752414/229269103-e8a1fda7-a899-4063-9eb0-ad6a5b58640f.jpg" width=50% height=50%>
+
