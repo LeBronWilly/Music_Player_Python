@@ -24,7 +24,7 @@ Created on 12/25, 2022 (Merry Christmas!!!)
 # https://stackoverflow.com/questions/12876935/python-qt-qlistwidget-double-clicked
 
 from UI_V01 import *
-from pygame import mixer
+from pygame import mixer, time
 from glob import glob
 import urllib.request
 
@@ -98,8 +98,12 @@ class AppWindow(QWidget):
         self.ui.Resume_Button.setEnabled(False)
         mixer.music.load("Music_Folder\\"+self.ui.Songs_ListWidget.currentItem().text())
         mixer.music.play(loops=-1)
+        # mixer.music.play()
         self.ui.Current_Label.setText("Now Playing: "+self.ui.Songs_ListWidget.currentItem().text())
+        # while mixer.music.get_busy():
+        #     time.Clock().tick(5)
         pass
+# https://stackoverflow.com/questions/61202506/play-all-songs-in-pygame
 
     def Pause_Button_Clicked(self):
         mixer.music.pause()
