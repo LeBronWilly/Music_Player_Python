@@ -92,17 +92,37 @@ class AppWindow(QWidget):
         self.ui.Current_Label.setText("Now Playing: ")
 
     def Play_Button_Clicked(self):
-        print("Music_Folder\\"+self.ui.Songs_ListWidget.currentItem().text())
+        # print("Music_Folder\\"+self.ui.Songs_ListWidget.currentItem().text())
         mixer.music.unpause()
         self.ui.Pause_Button.setEnabled(True)
         self.ui.Resume_Button.setEnabled(False)
         mixer.music.load("Music_Folder\\"+self.ui.Songs_ListWidget.currentItem().text())
+        # n = self.ui.Songs_ListWidget.currentRow()
+        # item_list = [self.ui.Songs_ListWidget.item(x).text() for x in range(self.ui.Songs_ListWidget.count())]
+        # item_list = sorted(item_list)
+        # item_list = item_list[n:] + item_list[:n]
+        # item_list = item_list[:n][::-1] + item_list[n:][::-1]
+        # item_list = item_list[n - 1::-1] + item_list[:n - 1:-1] + item_list[n - 1:n]
+        # print(item_list)
+
+
+
+        # for i, song in enumerate(item_list):
+        #     print(song)
+        #     if i == 0:
+        #         mixer.music.load("Music_Folder\\"+song)
+        #         mixer.music.play(0)
+        #     else:
+        #         mixer.music.queue("Music_Folder\\"+song)
+        # print()
+
+
         mixer.music.play(loops=-1)
         # mixer.music.play()
         self.ui.Current_Label.setText("Now Playing: "+self.ui.Songs_ListWidget.currentItem().text())
         # while mixer.music.get_busy():
         #     time.Clock().tick(5)
-        pass
+
 # https://stackoverflow.com/questions/61202506/play-all-songs-in-pygame
 
     def Pause_Button_Clicked(self):
@@ -126,10 +146,11 @@ class AppWindow(QWidget):
             self.ui.Songs_ListWidget.setCurrentRow(self.ui.Songs_ListWidget.count() - 1)
         else:
             self.ui.Songs_ListWidget.setCurrentRow(n - 1)
-        print("Music_Folder\\" + self.ui.Songs_ListWidget.currentItem().text())
-        mixer.music.load("Music_Folder\\" + self.ui.Songs_ListWidget.currentItem().text())
-        mixer.music.play(loops=-1)
-        self.ui.Current_Label.setText("Now Playing: " + self.ui.Songs_ListWidget.currentItem().text())
+        self.Play_Button_Clicked()
+        # print("Music_Folder\\" + self.ui.Songs_ListWidget.currentItem().text())
+        # mixer.music.load("Music_Folder\\" + self.ui.Songs_ListWidget.currentItem().text())
+        # mixer.music.play(loops=-1)
+        # self.ui.Current_Label.setText("Now Playing: " + self.ui.Songs_ListWidget.currentItem().text())
 
     def Next_Button_Clicked(self):
         mixer.music.unpause()
@@ -140,11 +161,11 @@ class AppWindow(QWidget):
             self.ui.Songs_ListWidget.setCurrentRow(0)
         else:
             self.ui.Songs_ListWidget.setCurrentRow(n + 1)
-        print("Music_Folder\\" + self.ui.Songs_ListWidget.currentItem().text())
-        mixer.music.load("Music_Folder\\" + self.ui.Songs_ListWidget.currentItem().text())
-        mixer.music.play(loops=-1)
-        self.ui.Current_Label.setText("Now Playing: " + self.ui.Songs_ListWidget.currentItem().text())
-        pass
+        self.Play_Button_Clicked()
+        # print("Music_Folder\\" + self.ui.Songs_ListWidget.currentItem().text())
+        # mixer.music.load("Music_Folder\\" + self.ui.Songs_ListWidget.currentItem().text())
+        # mixer.music.play(loops=-1)
+        # self.ui.Current_Label.setText("Now Playing: " + self.ui.Songs_ListWidget.currentItem().text())
 
     def Stop_Button_Clicked(self):
         mixer.music.stop()
